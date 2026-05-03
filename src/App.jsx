@@ -1,122 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState, useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import GiftBox from './components/GiftBox/GiftBox';
+import Letter from './components/Letter/Letter';
+import Music from './components/Music/Music';
+import Memories from './components/Memories/Memories';
+import Reasons from './components/Reasons/Reasons';
+import Final from './components/Final/Final';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [step, setStep] = useState(1);
+  const containerRef = useRef(null);
+
+  const nextStep = () => {
+    const tl = gsap.timeline();
+    tl.to(containerRef.current, {
+      opacity: 0,
+      y: -20,
+      duration: 0.5,
+      onComplete: () => {
+        setStep((prev) => prev + 1);
+        gsap.fromTo(containerRef.current, 
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.5 }
+        );
+      }
+    });
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="app-container">
+      {/* Decorative floating elements */}
+      <div className="decor-circle" style={{ top: '10%', left: '5%', width: '100px', height: '100px', background: 'var(--primary)', opacity: 0.1 }}></div>
+      <div className="decor-circle" style={{ bottom: '15%', right: '10%', width: '150px', height: '150px', background: 'var(--secondary)', opacity: 0.1 }}></div>
+      
+      <main ref={containerRef}>
+        {step === 1 && <GiftBox onOpen={nextStep} />}
+        {step === 2 && <Letter onNext={nextStep} />}
+        {step === 3 && <Music onNext={nextStep} />}
+        {step === 4 && <Memories onNext={nextStep} />}
+        {step === 5 && <Reasons onNext={nextStep} />}
+        {step === 6 && <Final />}
+      </main>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <footer style={{ position: 'fixed', bottom: '20px', fontSize: '0.8rem', color: 'var(--text-muted)', opacity: 0.5 }}>
+        Made with ❤️ for you
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
