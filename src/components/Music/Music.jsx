@@ -84,7 +84,6 @@ const Music = ({ onBack, audioInstance }) => {
   const parsedLyrics = parseLRC(lrcText);
 
   useEffect(() => {
-    // Animate background fade in
     gsap.fromTo(bgRef.current, 
       { opacity: 0 },
       { opacity: 0.4, duration: 1.5, ease: 'power2.inOut' }
@@ -101,7 +100,6 @@ const Music = ({ onBack, audioInstance }) => {
       if (index !== -1 && index !== currentLine) {
         setCurrentLine(index);
         
-        // Scroll to active line
         if (lineRefs.current[index]) {
           lineRefs.current[index].scrollIntoView({
             behavior: 'smooth',

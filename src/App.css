@@ -15,7 +15,6 @@ main {
   align-items: center;
 }
 
-/* Custom scrollbar for premium feel */
 ::-webkit-scrollbar {
   width: 8px;
 }

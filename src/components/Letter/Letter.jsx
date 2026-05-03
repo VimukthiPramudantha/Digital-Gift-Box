@@ -32,7 +32,6 @@ const Letter = ({ onBack }) => {
   ];
 
   useEffect(() => {
-    // Animate background fade in
     gsap.fromTo(bgRef.current, 
       { opacity: 0 },
       { opacity: 0.4, duration: 1.5, ease: 'power2.inOut' }
@@ -40,7 +39,6 @@ const Letter = ({ onBack }) => {
   }, []);
 
   useEffect(() => {
-    // Animate content reveal
     gsap.fromTo(contentRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
@@ -107,8 +105,6 @@ const Letter = ({ onBack }) => {
             )}
           </div>
         </div>
-        
-        {/* Progress indicator */}
         <div style={{ marginTop: '2rem', display: 'flex', gap: '0.5rem' }}>
           {sections.map((_, index) => (
             <div 

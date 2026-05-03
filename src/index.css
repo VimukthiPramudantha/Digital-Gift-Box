@@ -3,9 +3,9 @@
 :root {
   --bg-dark: #050505;
   --bg-accent: #0f0f0f;
-  --primary: #ffb7c5; /* Light Pink */
+  --primary: #ffb7c5;
   --primary-glow: rgba(255, 183, 197, 0.4);
-  --secondary: #ffdae0; /* Even lighter pink */
+  --secondary: #ffdae0;
   --text-main: #ffffff;
   --text-muted: #a1a1aa;
   --glass-bg: rgba(255, 255, 255, 0.05);
@@ -86,7 +86,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* Animations */
+
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -97,7 +97,6 @@ h1, h2, h3 {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Custom Scrollbar for Lyrics */
 .lyrics-container::-webkit-scrollbar {
   width: 0;
   display: none;

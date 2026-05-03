@@ -81,7 +81,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Decorative floating elements */}
       <div className="decor-circle" style={{ top: '10%', left: '5%', width: '150px', height: '150px', background: 'var(--primary)', opacity: 0.1 }}></div>
       <div className="decor-circle" style={{ bottom: '15%', right: '10%', width: '250px', height: '250px', background: 'var(--secondary)', opacity: 0.08 }}></div>
       <div className="decor-circle" style={{ top: '40%', right: '20%', width: '100px', height: '100px', background: 'var(--primary)', opacity: 0.05 }}></div>
