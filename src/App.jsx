@@ -5,19 +5,17 @@ import Letter from './components/Letter/Letter';
 import Music from './components/Music/Music';
 import Memories from './components/Memories/Memories';
 
-// Audio imports
 import fromTheStart from './assets/Songs/Laufey - From The Start.mp3';
 import loveMeNot from './assets/Songs/Ravyn Lenae - Love Me Not.mp3';
 
 import './App.css';
 
 function App() {
-  const [view, setView] = useState('gift'); // gift, letter, music, memories
+  const [view, setView] = useState('gift');
   const containerRef = useRef(null);
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Cleanup audio on unmount
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -26,19 +24,33 @@ function App() {
     };
   }, []);
 
-  const playAudio = (src) => {
+  const playAudio = (src, targetVolume = 0.2) => {
     if (audioRef.current) {
       audioRef.current.pause();
     }
     audioRef.current = new Audio(src);
     audioRef.current.loop = true;
-    audioRef.current.play().catch(e => console.log("Audio play blocked by browser", e));
+    audioRef.current.volume = 0;
+    audioRef.current.play()
+      .then(() => {
+        gsap.to(audioRef.current, { volume: targetVolume, duration: 2, ease: 'power1.inOut' });
+      })
+      .catch(e => console.log("Audio play blocked by browser", e));
   };
 
   const stopAudio = () => {
     if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current = null;
+      const currentAudio = audioRef.current;
+      gsap.to(currentAudio, { 
+        volume: 0, 
+        duration: 1, 
+        onComplete: () => {
+          currentAudio.pause();
+          if (audioRef.current === currentAudio) {
+            audioRef.current = null;
+          }
+        } 
+      });
     }
   };
 
@@ -51,11 +63,10 @@ function App() {
       onComplete: () => {
         setView(newView);
         
-        // Handle audio logic
         if (newView === 'letter') {
-          playAudio(fromTheStart);
+          playAudio(fromTheStart, 0.15);
         } else if (newView === 'music') {
-          playAudio(loveMeNot);
+          playAudio(loveMeNot, 0.4);
         } else {
           stopAudio();
         }
@@ -78,7 +89,7 @@ function App() {
       <main ref={containerRef}>
         {view === 'gift' && <GiftBox onSelect={(id) => navigateTo(id)} />}
         {view === 'letter' && <Letter onBack={() => navigateTo('gift')} />}
-        {view === 'music' && <Music onBack={() => navigateTo('gift')} />}
+        {view === 'music' && <Music onBack={() => navigateTo('gift')} audioInstance={audioRef.current} />}
         {view === 'memories' && <Memories onBack={() => navigateTo('gift')} />}
       </main>
 

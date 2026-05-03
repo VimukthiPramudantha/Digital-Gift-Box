@@ -99,7 +99,13 @@ h1, h2, h3 {
 
 /* Custom Scrollbar for Lyrics */
 .lyrics-container::-webkit-scrollbar {
-  width: 4px;
+  width: 0;
+  display: none;
+}
+
+.lyrics-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .lyrics-container::-webkit-scrollbar-track {
