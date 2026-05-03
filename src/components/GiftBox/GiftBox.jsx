@@ -22,9 +22,9 @@ const GiftBox = ({ onSelect }) => {
   }, [isOpen]);
 
   const panels = [
-    { id: 'letter', title: 'The Letter', icon: <Mail size={32} />, color: '#ff85a1', desc: 'A small message for you' },
-    { id: 'music', title: 'Our Song', icon: <Music size={32} />, color: '#a78bfa', desc: 'Something to listen to' },
-    { id: 'memories', title: 'Memories', icon: <Heart size={32} />, color: '#ffbdad', desc: 'Reasons why I like you' }
+    { id: 'letter', title: 'The Letter', icon: <Mail size={32} />, color: '#ffb7c5', desc: 'A small message for you' },
+    { id: 'music', title: 'Our Song', icon: <Music size={32} />, color: '#ffdae0', desc: 'Something to listen to' },
+    { id: 'memories', title: 'Memories', icon: <Heart size={32} />, color: '#ffffff', desc: 'Reasons why I like you' }
   ];
 
   if (isOpen) {
