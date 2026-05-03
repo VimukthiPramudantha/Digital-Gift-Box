@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BackButton from '../Common/BackButton';
 import gsap from 'gsap';
+import backgroundImage from '../../assets/background/songBK.jpeg';
 
 const Music = ({ onBack, audioInstance }) => {
   const [currentLine, setCurrentLine] = useState(0);
   const lyricsRef = useRef(null);
   const lineRefs = useRef([]);
+  const bgRef = useRef(null);
 
   const lrcText = `
 [00:16.88] See, right now, I need you, I'll meet you somewhere now
@@ -82,6 +84,12 @@ const Music = ({ onBack, audioInstance }) => {
   const parsedLyrics = parseLRC(lrcText);
 
   useEffect(() => {
+    // Animate background fade in
+    gsap.fromTo(bgRef.current, 
+      { opacity: 0 },
+      { opacity: 0.4, duration: 1.5, ease: 'power2.inOut' }
+    );
+
     if (!audioInstance) return;
 
     const updateLyrics = () => {
@@ -108,45 +116,56 @@ const Music = ({ onBack, audioInstance }) => {
   }, [audioInstance, parsedLyrics, currentLine]);
 
   return (
-    <div className="section-container">
+    <div className="section-container" style={{ position: 'relative', overflow: 'hidden', width: '100vw', height: '100vh' }}>
+      <div 
+        ref={bgRef}
+        className="section-bg"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      />
+      
+      <div className="section-overlay"></div>
+
       <BackButton onClick={onBack} />
-      <div className="glass-card" style={{ width: '100%', maxWidth: '700px', height: '70vh', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ marginBottom: '2rem' }}>
-          <h2 className="glow-text" style={{ fontSize: '2rem' }}>Love Me Not</h2>
-          <p style={{ color: 'var(--primary)' }}>Ravyn Lenae</p>
-        </div>
-        
-        <div 
-          ref={lyricsRef}
-          className="lyrics-container"
-          style={{ 
-            flex: 1, 
-            overflowY: 'auto', 
-            padding: '2rem 1rem',
-            textAlign: 'center',
-            maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
-            scrollBehavior: 'smooth'
-          }}
-        >
-          {parsedLyrics.map((line, index) => (
-            <p 
-              key={index} 
-              ref={el => lineRefs.current[index] = el}
-              style={{ 
-                margin: '2rem 0', 
-                fontSize: index === currentLine ? '1.5rem' : '1.1rem',
-                color: index === currentLine ? 'var(--primary)' : 'var(--text-muted)',
-                fontWeight: index === currentLine ? '700' : '400',
-                transition: 'all 0.4s ease',
-                opacity: index === currentLine ? 1 : 0.4,
-                textShadow: index === currentLine ? '0 0 10px var(--primary-glow)' : 'none',
-                transform: index === currentLine ? 'scale(1.1)' : 'scale(1)'
-              }}
-            >
-              {line.text}
-            </p>
-          ))}
+      
+      <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+        <div className="glass-card" style={{ width: '90%', maxWidth: '700px', height: '70vh', display: 'flex', flexDirection: 'column', background: 'rgba(0, 0, 0, 0.65)' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <h2 className="glow-text" style={{ fontSize: '2rem' }}>Love Me Not</h2>
+            <p style={{ color: 'var(--primary)' }}>Ravyn Lenae</p>
+          </div>
+          
+          <div 
+            ref={lyricsRef}
+            className="lyrics-container"
+            style={{ 
+              flex: 1, 
+              overflowY: 'auto', 
+              padding: '2rem 1rem',
+              textAlign: 'center',
+              maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+              scrollBehavior: 'smooth'
+            }}
+          >
+            {parsedLyrics.map((line, index) => (
+              <p 
+                key={index} 
+                ref={el => lineRefs.current[index] = el}
+                style={{ 
+                  margin: '2rem 0', 
+                  fontSize: index === currentLine ? '1.5rem' : '1.1rem',
+                  color: index === currentLine ? 'var(--primary)' : 'var(--text-muted)',
+                  fontWeight: index === currentLine ? '700' : '400',
+                  transition: 'all 0.4s ease',
+                  opacity: index === currentLine ? 1 : 0.4,
+                  textShadow: index === currentLine ? '0 0 10px var(--primary-glow)' : 'none',
+                  transform: index === currentLine ? 'scale(1.1)' : 'scale(1)'
+                }}
+              >
+                {line.text}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
