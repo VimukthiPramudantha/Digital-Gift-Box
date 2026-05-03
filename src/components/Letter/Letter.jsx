@@ -11,7 +11,7 @@ const Letter = ({ onBack }) => {
 
   const sections = [
     {
-      text: "I don’t even know what to call you sometimes… because “babe” clearly isn’t working 😄\n\nBut whatever I call you, I know one thing for sure, you’ve become someone I genuinely enjoy having in my life."
+      text: "I don’t even know what to call you sometimes… because “babe” clearly isn’t working 😂\n\nBut whatever I call you, I know one thing for sure, you’ve become someone I genuinely enjoy having in my life."
     },
     {
       text: "It’s kind of funny how this all started.\n\nI texted you, you ignored me, I unfollowed you… and then you came back at me like that.\n\nI don’t know why, but that moment stuck with me. Maybe because it was so real, so *you*.\n\nMost people try to impress, you didn’t, and I liked that more than anything."
