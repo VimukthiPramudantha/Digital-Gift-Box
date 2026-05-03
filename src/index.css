@@ -97,7 +97,36 @@ h1, h2, h3 {
   animation: float 5s ease-in-out infinite;
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
+/* Custom Scrollbar for Lyrics */
+.lyrics-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.lyrics-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lyrics-container::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 10px;
+}
+
+.lyrics-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-glow);
+}
+
+@media (max-width: 600px) {
+  .glass-card {
+    padding: 1.5rem;
+    width: 95%;
+    max-width: 100%;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  .panel-card h2 {
+    font-size: 1.4rem !important;
+  }
 }
