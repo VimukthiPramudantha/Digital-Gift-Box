@@ -31,9 +31,8 @@ const Memories = ({ onBack }) => {
           <h2 className="glow-text">A Favorite Moment</h2>
         </div>
         <p style={{ fontStyle: 'italic', fontSize: '1.4rem', lineHeight: '1.6', color: 'var(--text-main)', textAlign: 'center' }}>
-          "My favorite moment has to be when you yelled at me the first time.
-          Most people would probably hate that… but for me, it was the moment you became interesting.
-          I guess that’s when I knew you weren’t like everyone else."
+          "My favorite moment is every day I get to go to work with my beautiful girl, holding hands and stealing little kisses. And after a tiring day, waiting for my little girl and coming home together somehow makes me forget I’m tired. ❤️
+"
         </p>
       </div>
 

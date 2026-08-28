@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import BackButton from '../Common/BackButton';
 import gsap from 'gsap';
-import backgroundImage from '../../assets/background/songBK.jpeg';
+import backgroundImage from '../../assets/background/songBK.jpg';
 
 const Music = ({ onBack, audioInstance }) => {
   const [currentLine, setCurrentLine] = useState(0);
