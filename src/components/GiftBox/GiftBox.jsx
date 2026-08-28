@@ -3,7 +3,7 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { Mail, Music, Heart } from 'lucide-react';
 import gsap from 'gsap';
 import HeartBackground from '../Common/HeartBackground';
-import backgroundImage from '../../assets/background/landingBK.jpeg';
+import backgroundImage from '../../assets/background/landingBK.jpg';
 
 const GiftBox = ({ onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);

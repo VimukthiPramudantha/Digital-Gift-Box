@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import BackButton from '../Common/BackButton';
-import backgroundImage from '../../assets/background/babe.jpeg';
+import backgroundImage from '../../assets/background/babe.jpg';
 
 const Letter = ({ onBack }) => {
   const [subStep, setSubStep] = useState(0);
@@ -11,13 +11,13 @@ const Letter = ({ onBack }) => {
 
   const sections = [
     {
-      text: "I don’t even know what to call you sometimes… because “babe” clearly isn’t working 😂\n\nBut whatever I call you, I know one thing for sure, you’ve become someone I genuinely enjoy having in my life."
+      text: "I don’t even know what to call you sometimes… because “babii” clearly isn’t working 😂\n\nBut whatever I call you, I know one thing for sure, you’ve become someone I genuinely enjoy having in my life."
     },
     {
-      text: "It’s kind of funny how this all started.\n\nI texted you, you ignored me, I unfollowed you… and then you came back at me like that.\n\nI don’t know why, but that moment stuck with me. Maybe because it was so real, so *you*.\n\nMost people try to impress, you didn’t, and I liked that more than anything."
+      text: "It’s kind of funny how this all started.\n\nAfter we worked at that shitty place, I never thought I’d find you again. But then, on a really busy day when our bus broke down, I accidentally met you again.\n\nFunny how life brings the right people back into your life when you least expect it. ❤️"
     },
     {
-      text: "Even though we haven’t met yet, talking to you feels easy.\n\nYou make me feel relaxed… happy in a way that’s simple but real.\n\nAnd your cuteness? Yeah, that definitely gets me every time."
+      text: "Even though we’re not together yet\n\nI promise I’ll hold you close and warm, and always do my best to never make you sad. ❤️"
     },
     {
       text: "You might not realize it, but the way you care, even in small ways, means a lot.\n\nIt’s rare to find someone who understands a little of what you’ve been through without needing a whole explanation.\n\nThat’s something I don’t take lightly."
