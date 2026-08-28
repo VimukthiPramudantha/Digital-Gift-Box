@@ -1,12 +1,12 @@
-# 🎁 Digital Gift Box — For the Girl Who Stole My Heart
+# Digital Gift Box — For the Girl Who Stole My Heart
 
 A personalized, interactive, and romantic web experience designed as a virtual gift. This project features a step-by-step reveal flow with emotional messages, synchronized music, and cherished memories, all wrapped in a premium Black and Light Pink aesthetic.
 
-✨ **Live Demo:** [https://mysweetgift.netlify.app/](https://mysweetgift.netlify.app/)
+**Live Demo:** [https://mysweetgift.netlify.app/](https://mysweetgift.netlify.app/)
 
 ---
 
-## 💡 The Concept
+## The Concept
 
 Instead of a traditional gift, this is a **virtual experience** that unfolds step-by-step.
 - **Curiosity:** It starts with a closed gift box.
@@ -15,34 +15,34 @@ Instead of a traditional gift, this is a **virtual experience** that unfolds ste
 
 ---
 
-## 🚀 Features
+## Features
 
-### 📦 Interactive Landing Page
+### Interactive Landing Page
 - **Lottie Animation:** A playful gift box animation that invites interaction.
 - **Heart Popups:** Randomly spawning hearts create a romantic atmosphere.
 - **Themed Design:** A premium dark theme with soft pink accents and glassmorphism.
 
-### ✉️ The Multi-Section Letter
+### The Multi-Section Letter
 - **Guided Narrative:** The letter is split into 6 emotional sections with a "Next" button navigation.
 - **Personal Background:** Features a blurred backdrop of a special memory.
 - **Smooth Transitions:** GSAP animations ensure each word feels intentional.
 
-### 🎵 "Our Song" Experience
+### "Our Song" Experience
 - **Synchronized Lyrics:** Line-by-line lyric highlighting synced perfectly with the music.
 - **Auto-Scrolling:** The interface keeps the active lyric centered for an immersive experience.
 - **Audio Fading:** Music starts and stops with a gentle 2-second fade for a premium feel.
 
-### 📸 Memories & Reasons
+### Memories & Reasons
 - **Interactive Dashboard:** A collection of reasons why she is special.
 - **Favorite Moment:** A dedicated section for that one "interesting" memory.
 - **Iconography:** Clean, modern icons using Lucide-React.
 
-### ⏳ Custom Loading Animation
+### Custom Loading Animation
 - **Themed Transitions:** A playful "smiley" SVG animation themed in pink appears during section transitions to keep the experience feeling fluid.
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - **React (Vite):** Core framework for a fast, modern web app.
 - **GSAP:** For high-end animations, audio control, and smooth transitions.
@@ -52,7 +52,7 @@ Instead of a traditional gift, this is a **virtual experience** that unfolds ste
 
 ---
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 1. **Clone the repository:**
    ```bash
@@ -76,7 +76,7 @@ Instead of a traditional gift, this is a **virtual experience** that unfolds ste
 
 ---
 
-## 🖤 Credits
+## Credits
 
 - **Background Music 1:** *From The Start* by Laufey
 - **Background Music 2:** *Love Me Not* by Ravyn Lenae
